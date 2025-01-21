@@ -1,38 +1,75 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+h1 {
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Nonchalant, casual font */
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 20px; /* Spacing between text and clock */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flip-clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Nonchalant, casual font */
+  transform: scale(calc(0.002 * min(100vw, 100vh)));
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flip-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.flip-card {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  background: #333;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.App-link {
-  color: #61dafb;
+.flip-card .top,
+.flip-card .bottom {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flip-card .top {
+  top: 0;
+  border-bottom: 2px solid #000;
+}
+
+.flip-card .bottom {
+  bottom: 0;
+  border-top: 2px solid #000;
+}
+
+.label {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #666;
 }
