@@ -7,7 +7,7 @@ import './FlipClock.css';
 const App = () => {
   return (
     <div>
-      <FlipClock targetDateTime="2025-02-01T15:30:00" />
+      <FlipClock targetDateTime="2025-03-03T08:55:00-05:00" />
     </div>
   );
 };
