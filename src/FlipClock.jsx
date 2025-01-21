@@ -3,6 +3,7 @@ import "./FlipClock.css";
 
 const FlipClock = ({ targetDateTime }) => {
   const [timeRemaining, setTimeRemaining] = useState({
+    days: "00",
     hours: "00",
     minutes: "00",
     seconds: "00",
@@ -15,15 +16,16 @@ const FlipClock = ({ targetDateTime }) => {
       const difference = target - now;
 
       if (difference <= 0) {
-        setTimeRemaining({ hours: "00", minutes: "00", seconds: "00" });
+        setTimeRemaining({ days: "00", hours: "00", minutes: "00", seconds: "00" });
         return;
       }
 
+      const days = String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0");
       const hours = String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0");
       const minutes = String(Math.floor((difference / (1000 * 60)) % 60)).padStart(2, "0");
       const seconds = String(Math.floor((difference / 1000) % 60)).padStart(2, "0");
 
-      setTimeRemaining({ hours, minutes, seconds });
+      setTimeRemaining({ days, hours, minutes, seconds });
     };
 
     const interval = setInterval(calculateTimeRemaining, 1000);
@@ -43,6 +45,7 @@ const FlipClock = ({ targetDateTime }) => {
 
   return (
     <div className="flip-clock">
+      <FlipUnit value={timeRemaining.days} label="Days" />
       <FlipUnit value={timeRemaining.hours} label="Hours" />
       <FlipUnit value={timeRemaining.minutes} label="Minutes" />
       <FlipUnit value={timeRemaining.seconds} label="Seconds" />
