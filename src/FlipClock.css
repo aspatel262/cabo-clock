@@ -1,0 +1,55 @@
+.flip-clock {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .flip-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .flip-card {
+    position: relative;
+    width: 60px;
+    height: 90px;
+    background: #333;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .flip-card .top,
+  .flip-card .bottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card .top {
+    top: 0;
+    border-bottom: 2px solid #000;
+  }
+  
+  .flip-card .bottom {
+    bottom: 0;
+    border-top: 2px solid #000;
+  }
+  
+  .label {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #666;
+  }
+  
